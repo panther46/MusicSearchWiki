@@ -9,9 +9,19 @@ function App() {
   const [letra, setLetra] = useState([]);
   const [info, agregarInfo] = useState({});
 
+
+const consultLyrics = (busqueda) =>{
+  console.log(busqueda);
+
+}
+
+
+
   return (
     <Fragment>
-      <Formulario/>
+      <Formulario
+      consultLyrics = {consultLyrics} 
+      />
 
     </Fragment>
   )

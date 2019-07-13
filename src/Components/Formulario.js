@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Formulario(){
+function Formulario(props){
 
     // States Locales, busqueda
     const [busqueda, setBusqueda] = useState({
@@ -8,7 +8,7 @@ function Formulario(){
         cancion:''
     })
 
-    // Metodo para actualizar estado y leer datos de inputs
+    // Metodo para actualizar estado y leer datos de inputs. Como parametro un evento (e), se usa actualizador de estado, se incluye una copia de estado actual y se lee datos de formulario con .target
     const actualizarState = (e) =>{
         setBusqueda ({
             ...busqueda,
@@ -18,12 +18,20 @@ function Formulario(){
         console.log(busqueda);
     }
 
+    // Metodo local para recibir de app.js metodo de consulta y enviar el request desde este componente
+    const sendRequest = (e) =>{
+        e.preventDefault();
+        props.consultLyrics(busqueda);
+
+
+    }
+
 
     return(
         <div className="bg-info">
           <div className="container">
               <div className="row">
-                  <form 
+                  <form onSubmit = {sendRequest}
                     className="col card text-white bg-transparent  mb-5 pt-5 pb-2">
                       <fieldset>
                           <legend className="text-center">Music Search Wiki</legend>
