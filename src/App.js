@@ -1,6 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import Formulario from "./Components/Formulario";
 import axios from 'axios';
+import Cancion from "./Components/Cancion";
 
 
 
@@ -31,6 +32,19 @@ const consultLyrics = async (busqueda) => {
       <Formulario
       consultLyrics = {consultLyrics} 
       />
+
+      <div clasName = "container mt-5">
+        <div className = "row">
+          <div className = "col-md-6">
+          </div>
+          <div className = "col-md-6">
+            <Cancion
+            letra = {letra} 
+            />
+          </div>
+        </div>
+
+      </div>
 
     </Fragment>
   )
