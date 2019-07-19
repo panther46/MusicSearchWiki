@@ -8,17 +8,21 @@ function Formulario(props){
         cancion:''
     })
 
+    
+    // Esto sustituye la lectura de los inputs con ref por separado y la construccion de un objeto
     // Metodo para actualizar estado y leer datos de inputs. Como parametro un evento (e), se usa actualizador de estado, se incluye una copia de estado actual y se lee datos de formulario con .target
+    // Este metodo se usa en cada ONCHANGE de los inputs del form.
     const actualizarState = (e) =>{
         setBusqueda ({
             ...busqueda,
             [e.target.name] : e.target.value
             
         });
-        console.log(busqueda);
+        
     }
 
     // Metodo local para recibir de app.js metodo de consulta y enviar el request desde este componente
+    // Enviamos informacion a metodo consultLyrics que devolvera la informacion procesada
     const sendRequest = (e) =>{
         e.preventDefault();
         props.consultLyrics(busqueda);
