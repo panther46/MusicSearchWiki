@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import AOS from 'aos';
+
+AOS.init();
 
 function Formulario(props){
 
@@ -33,7 +36,7 @@ function Formulario(props){
 
     return(
         <div className="bg-info">
-          <div className="container">
+          <div className="container" data-aos="fade-up">
               <div className="row">
                   <form onSubmit = {sendRequest}
                     className="col card text-white bg-transparent  mb-5 pt-5 pb-2">
@@ -42,12 +45,12 @@ function Formulario(props){
                           <div className="row">
                               <div className="col-md-6">
                                 <div className="form-group">
-                                    <label>Artista</label>
+                                    <label>Artist</label>
                                     <input 
                                         type="text" 
                                         className="form-control" 
                                         name="artista" 
-                                        placeholder="Nombre Artista"
+                                        placeholder="Artist Name"
                                         onChange={actualizarState} 
                                         required
                                     />
@@ -55,19 +58,19 @@ function Formulario(props){
                               </div>
                               <div className="col-md-6">
                                 <div className="form-group">
-                                    <label>Canción</label>
+                                    <label>Song</label>
                                     <input 
                                         type="text" 
                                         className="form-control" 
                                         name="cancion" 
-                                        placeholder="Nombre Canción"
+                                        placeholder="Song Name"
                                         onChange = {actualizarState} 
                                         required
                                     />
                                 </div>
                               </div>
                           </div>
-                          <button type="submit" className="btn btn-primary float-right btn-custom">Buscar</button>
+                          <button type="submit" className="btn btn-primary float-right btn-custom">Search</button>
                       </fieldset>
                   </form>
               </div>

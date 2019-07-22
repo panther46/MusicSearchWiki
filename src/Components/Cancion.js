@@ -7,7 +7,7 @@ function Cancion ({letra}){
 
     return (
         <Fragment>
-            <h2>Letra de Cancion</h2>
+            <h2>Song Lyrics</h2>
             <p className = "letra">{letra}</p>
         </Fragment>
     )

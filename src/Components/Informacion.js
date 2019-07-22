@@ -1,20 +1,21 @@
 import React from 'react';
+import AOS from 'aos';
 
-
+AOS.init();
 
 function Informacion({info}) {
 
     if (Object.keys(info).length === 0) return null;
 
     return (
-        <div className = "card border-light">
+        <div className = "card border-light" data-aos="fade-up">
             <div className = "card-header bg-primary text-light font-weight-bold">
-                Informacion Artista
+                Artist Info
             </div>
             <div className = "card-body">
                 <img src = {info.strArtistThumb} alt = "LogoArt" />
-                <p className = "card-text">Genero: {info.strGenre}</p>
-                <h2 className = "card-text text-center" > Biografía</h2>
+                <p className = "card-text">Genre: {info.strGenre}</p>
+                <h2 className = "card-text text-center" >Bio</h2>
                 <p className = "card-text">{info.strBiographyES}</p>
                 <p className = "card-text"></p>
                     <a href={`https://${info.strFacebook}`} target = "_blank" rel="noopener noreferrer">
