@@ -2,6 +2,7 @@ import React, {useState, useEffect, Fragment} from 'react';
 import Formulario from "./Components/Formulario";
 import axios from 'axios';
 import Cancion from "./Components/Cancion";
+import Informacion from "./Components/Informacion";
 
 
 
@@ -33,12 +34,16 @@ const consultLyrics = async (busqueda) => {
 // Metodo para consultar API de informacion de cancion
 
 const consultarApiInfo = async () => {
-  const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artista}`;
+  if (artista){
+    const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artista}`;
 
-  const resultado = await axios(url);
+    const resultado = await axios(url);
+  
+    agregarInfo(resultado.data.artists[0]);
+    console.log(info);
 
-  agregarInfo(resultado.data.artists[0]);
-  //console.log(info);
+  }
+ 
 }
 
 // actua como el component didmount en este caso con la dependencia de "artista" cuando haya un cambio en el estado artista se ejecutara de nuevo la funcion
@@ -62,6 +67,9 @@ useEffect(
       <div className = "container mt-5">
         <div className = "row">
           <div className = "col-md-6">
+            <Informacion 
+            info = {info}
+            />
           </div>
           <div className = "col-md-6">
             <Cancion
